@@ -9,7 +9,7 @@
 	-CSS
 	-Javascript
 	
-![alt text](ogminesweeper.png)
+![ScreenShot](img/ogminesweeper.png)
 
 ## user story
 	As a user, I want the ability to...
