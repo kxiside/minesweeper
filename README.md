@@ -4,14 +4,14 @@
 
 	Minesweeper was brought to the masses in the 1990's by Microsoft. It was a simple game that was easy to play while working and easily became the most played game in the world. Although it is known by them to have been borrowed from another game they have not been clear as to who invented it. 
 	
-## technologies 
+### technologies 
 	-HTML
 	-CSS
 	-Javascript
 	
 ![ScreenShot](img/ogminesweeper.png)
 
-## user story
+### user story
 	As a user, I want the ability to...
 		- load the game board
 		- select any square
@@ -21,5 +21,8 @@
 		- if there is a mine clicked end the game
 		- reset board with a single button
 		
-## wireframes
+### wireframes
 ![ScreenShot](img/wireframe1.jpg)
+
+### Entity Relationship Diagram
+![ScreenShot](img/starsweepererd.jpg)
