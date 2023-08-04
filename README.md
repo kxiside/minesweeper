@@ -1,4 +1,4 @@
-# minesweeper
+## minesweeper
 
 	This is a 2D single player computer game the relies heavily on logic and quick thinking. The layout is a rectanglular board with a set number of squares. The player must click the squares to find all the mines on the board. The squares surrounding the mines will indicate how close they are and must be flagged in order to win. If or when a mine is clicked the game ends.
 
