@@ -25,4 +25,4 @@
 ![ScreenShot](img/wireframe1.jpg)
 
 ### Entity Relationship Diagram
-![ScreenShot](img/starsweepererd.jpg)
+![ScreenShot](img/starsweeperd.jpg)
