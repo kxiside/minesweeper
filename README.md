@@ -24,6 +24,8 @@ In order to complete the game you must clear all squares without a star.
 		
 ### wireframes
 ![ScreenShot](findingstars.jpg)
+
 ![ScreenShot](flagging.jpg)
+
 ![ScreenShot](endgame.jpg)
 
