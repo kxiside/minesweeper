@@ -24,5 +24,3 @@
 ### wireframes
 ![ScreenShot](img/wireframe1.jpg)
 
-### Entity Relationship Diagram
-![ScreenShot](img/starsweeperd.jpg)
