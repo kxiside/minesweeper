@@ -22,4 +22,4 @@
 		- reset board with a single button
 		
 ## wireframes
-![ScreenShot]()
+![ScreenShot](img/wireframe1.jpg)
