@@ -1,8 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+ 
+    background-color: darkslategrey;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke
+}
+
+.header {
+    padding: 10px;
+}
+
+.star {
+
+}
+
 .board {
     height: 540px;
     aspect-ratio: 1;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
     background-color: grey;
 }
 
