@@ -5,9 +5,8 @@
 body {
  
     background-color: darkslategrey;
-    align-items: center;
-    justify-content: center;
     color: whitesmoke
+
 }
 
 .header {
@@ -25,10 +24,13 @@ body {
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
     background-color: grey;
+   
 }
 
 .board > div {
     height: 60px;
     aspect-ratio: 1;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
