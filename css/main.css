@@ -3,34 +3,55 @@
 }
 
 body {
- 
-    background-color: darkslategrey;
-    color: whitesmoke
-
+    text-align: center;
+    background-image: url("/img/spacebg.jpeg");
 }
 
-.header {
-    padding: 10px;
+h1, h2{
+    color:black;
+    background-color: grey;
+    text-align: center;
+    
 }
+
 
 .star {
 
 }
 
-.board {
-    height: 540px;
+#board {
+    background-image: url("/img/mooon.jpg");
+    background-position: center;
+    background-size: 200%;
+    height: 532px;
     aspect-ratio: 1;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    background-color: grey;
+    border: 5px solid black;
+    margin: 0 auto;
    
 }
 
-.board > div {
-    height: 60px;
+#board div {
+    height: 58px;
     aspect-ratio: 1;
-    text-align: center;
+    display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid black;
 }
+
+#ship {
+    font-size: 25px;
+  background-color: lightgray;
+  margin: 10px 10px
+  
+  
+}
+
+.cellPress {
+    background-color: darkgrey;
+}
+
