@@ -83,7 +83,7 @@ function cellPress() {
     // linking cell to classlist
     let cell = this
 
-    // setting ships on cells
+    // setting ships and removing them from cells
     if(shipSet) {
         if (cell.innerText == "") {
             cell.innerText = "ship"
@@ -92,11 +92,13 @@ function cellPress() {
         }
         return
     }
+    // if star is clicked game over is true
     if (starsCoordinate.includes(cell.id)) {
         system404 = true
         showStars()
         return
     }
+    // creating row and column selection into numbers
     let x = cell.id.slice(0)
     let y = cell.id.slice(2)
     let r = parseInt(x)
@@ -163,8 +165,7 @@ function showStars() {
             if (starsCoordinate.includes(cell.id)) {
                 
                 // stylize cell when revealed
-                cell.innerText = "star"
-                cell.style.backgroundColor = "slategrey"
+                cell.classList.add('starReveal')
             }
         })
     })
@@ -174,22 +175,28 @@ function showStars() {
 function starSearch(r, c) {
     if(r < 0 || r >= rows || c < 0 || c >= columns) {
         return
-    }
+    } 
+    
+    // starting stars found from a value
     let starsFound = 0
 
-    starsFound += cellSearch(r-1, c-1) // top left
-    starsFound += cellSearch(r-1, c) // top
-    starsFound += cellSearch(r-1, c+1) // top right
-    starsFound += cellSearch(r, c-1)// left
-    starsFound += cellSearch(r, c+1)// right
-    starsFound += cellSearch(r+1, c-1)// bottom left
-    starsFound += cellSearch(r+1, c) // bottom
-    starsFound += cellSearch(r+1, c+1) // bottom right
+    // adding up cells into starsFound value
+     starsFound += cellSearch(r-1, c-1) // top left
+     starsFound += cellSearch(r-1, c) // top
+     starsFound += cellSearch(r-1, c+1) // top right
+     starsFound += cellSearch(r, c-1)// left
+     starsFound += cellSearch(r, c+1)// right
+     starsFound += cellSearch(r+1, c-1)// bottom left
+     starsFound += cellSearch(r+1, c) // bottom
+     starsFound += cellSearch(r+1, c+1) // bottom right
 
+     // adding numbers to cells to show the number of stars adjacent to them
     if(starsFound > 0) {
         board[r][c].innerText = starsFound
         board[r][c].classList.add("c" + starsFound.toString())
     } else {
+        
+        //creating black square when cell is empty
         board[r][c].classList.add('cellPress')
     }
 }
@@ -202,6 +209,7 @@ function cellSearch(r, c) {
     return 0
 }
 
+// refresh game
 function starRefresh(){
     window.location.reload()
 }

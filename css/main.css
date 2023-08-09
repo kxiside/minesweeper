@@ -45,13 +45,55 @@ h1, h2{
 
 #ship {
     font-size: 25px;
-  background-color: lightgray;
   margin: 10px 10px
   
   
 }
 
-.cellPress {
-    background-color: darkgrey;
+.starReveal {
+    background-image: url(/img/starsweep.jpg); 
+    background-size: 90px;  
 }
 
+.cellPress {
+    background-color: black;
+}
+
+.c1 {
+    color: blue;
+    background-color: black;
+}
+
+.c2 {
+    color: lightseagreen;
+    background-color: black;
+}
+
+.c3 {
+    color: greenyellow;
+    background-color: black;
+}
+
+.c4 {
+    color: green;
+    background-color: black;
+}
+
+.c5 {
+    color: rosybrown;
+    background-color: black;
+}
+
+.c6 {
+    color: magenta;
+    background-color: black;
+}
+
+.c7 {
+    color: red;
+    background-color: black;
+}
+
+.noStar {
+    background-color: black;
+}
