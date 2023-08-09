@@ -92,13 +92,18 @@ function cellPress() {
         }
         return
     }
+
+    if(cell.innerText === "ship") {
+        return
+    }
+    
     // if star is clicked game over is true
     if (starsCoordinate.includes(cell.id)) {
         system404 = true
         showStars()
         return
     }
-    // creating row and column selection into numbers
+    // row and column selection from strings into numbers
     let x = cell.id.slice(0)
     let y = cell.id.slice(2)
     let r = parseInt(x)
@@ -179,6 +184,9 @@ function starSearch(r, c) {
     
     // starting stars found from a value
     let starsFound = 0
+
+
+    
 
     // adding up cells into starsFound value
      starsFound += cellSearch(r-1, c-1) // top left
