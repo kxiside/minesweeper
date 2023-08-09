@@ -1,11 +1,8 @@
-	/*----- constants -----*/
+/*----- constants -----*/
 
 // setting rows & columns amount
 const rows = 9
 const columns = 9
-
-// how many times a cell was clicked
-const cellClicked = 0
 
 // board set to 0 on initialization
 const board = []
@@ -13,7 +10,7 @@ const board = []
     
     /*----- state variables -----*/
 
-// cell disabled until ship is clicked
+// flag state
 let shipSet = false
 
 // number of stars(mines)
@@ -27,27 +24,16 @@ let system404 = false;
 
          
     /*----- cached elements  -----*/
-
-// selects html element with class name of board and assisgns it 
-const boardEl = document.querySelector('#board')
-
-// connectiong Id of stars count to new starsEl element
 starsEl = document.getElementById("starsCount")
-
-// listening for cell click
-
     
     
     
         /*----- functions -----*/
 
+init()
+
 // initialize board 
 function init () {
-
-    // outputing stars count to html
-    starsEl.innerText = stars
-
-    //render all game logic on initialization
     render()
 }
 
@@ -69,8 +55,10 @@ function renderBoard() {
             
             // creating cell ID of rows & columns
             cell.id = (`${r}-${c}`)
+            cell.addEventListener("click", cellPress)
 
             //creating cell divs appended to the new board element
+            boardEl = document.getElementById('board')
             boardEl.append(cell)
 
             // pushing cell string to row array
@@ -81,6 +69,41 @@ function renderBoard() {
         // new row array being pushed to board array
         board.push(row)
     }  
+    console.log(board)
+}
+
+// function to add ships on click
+function cellPress() {
+   
+
+    // check wether game is over or cell has been previously clicked
+    if(system404 || this.classList.contains('cellPress')){
+        return
+    }
+    // linking cell to classlist
+    let cell = this
+
+    // setting ships on cells
+    if(shipSet) {
+        if (cell.innerText == "") {
+            cell.innerText = "ship"
+        } else if (cell.innerText == "ship") {
+            cell.innerText = ""
+        }
+        return
+    }
+    if (starsCoordinate.includes(cell.id)) {
+        system404 = true
+        showStars()
+        return
+    }
+    let x = cell.id.slice(0)
+    let y = cell.id.slice(2)
+    let r = parseInt(x)
+    let c = parseInt(y)
+    starSearch(r, c)
+    
+
 }
 
 
@@ -102,21 +125,20 @@ function renderStars() {
 
     
     // loop through stars value
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < stars; i++) {
 
         // create variable for random rows & columns
         let starPosition = randomStar(rows, columns)
 
         // randomizing star position ['0-0']
         let id = starPosition.row.toString() + "-" + starPosition.column.toString()
+        
 
         // if theres no ID push in new ID
         if (!starsCoordinate.includes(id)) {
-            starsCoordinate.push(id)
-
-           // minus stars count by 1
-           stars--
+            starsCoordinate.push(id) 
         }
+        
     }
     
 }
@@ -148,24 +170,52 @@ function showStars() {
     })
 }
 
+// searching cells for stars
+function starSearch(r, c) {
+    if(r < 0 || r >= rows || c < 0 || c >= columns) {
+        return
+    }
+    let starsFound = 0
 
+    starsFound += cellSearch(r-1, c-1) // top left
+    starsFound += cellSearch(r-1, c) // top
+    starsFound += cellSearch(r-1, c+1) // top right
+    starsFound += cellSearch(r, c-1)// left
+    starsFound += cellSearch(r, c+1)// right
+    starsFound += cellSearch(r+1, c-1)// bottom left
+    starsFound += cellSearch(r+1, c) // bottom
+    starsFound += cellSearch(r+1, c+1) // bottom right
 
+    if(starsFound > 0) {
+        board[r][c].innerText = starsFound
+        board[r][c].classList.add("c" + starsFound.toString())
+    } else {
+        board[r][c].classList.add('cellPress')
+    }
+}
+
+// searching for cells on the board
+function cellSearch(r, c) {
+    if(starsCoordinate.includes(`${r}-${c}`)) {
+        return 1
+    }
+    return 0
+}
+
+function starRefresh(){
+    window.location.reload()
+}
 
 
 // render game 
 function render() {
     renderBoard()
-    renderStars()
-    renderShip()
-    
+    renderStars()   
 }
     
         /*----- event listeners -----*/
-// adding a click function to the board element
-document.addEventListener('click', board)
-
 // setting the ship button to activate or deactivate on click
 document.getElementById('ship').addEventListener('click', renderShip)
 
 // loading game on initialize
-document.addEventListener('DOMContentLoaded', init)
+document.getElementById('reset').addEventListener('click', starRefresh)
