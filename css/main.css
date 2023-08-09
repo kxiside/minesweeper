@@ -44,15 +44,16 @@ h1, h2{
 }
 
 #ship {
-    font-size: 25px;
+    font-size: 30px;
   margin: 10px 10px
   
   
 }
 
 .starReveal {
-    background-image: url(/img/starsweep.jpg); 
-    background-size: 90px;  
+    background-image: url(/img/explode.jpg); 
+    background-size: 60px;  
+    backgrou
 }
 
 .cellPress {

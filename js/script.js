@@ -25,8 +25,7 @@ let system404 = false;
          
     /*----- cached elements  -----*/
 starsEl = document.getElementById("starsCount")
-    
-    
+starsEl.innerText = stars.toString()
     
         /*----- functions -----*/
 
@@ -86,17 +85,19 @@ function cellPress() {
     // setting ships and removing them from cells
     if(shipSet) {
         if (cell.innerText == "") {
-            cell.innerText = "ship"
-        } else if (cell.innerText == "ship") {
+            cell.innerText = "🚀"
+           
+        } else if (cell.innerText == "🚀") {
             cell.innerText = ""
+          
         }
         return
     }
 
-    if(cell.innerText === "ship") {
+    if(cell.innerText === "🚀") {
         return
     }
-    
+
     // if star is clicked game over is true
     if (starsCoordinate.includes(cell.id)) {
         system404 = true
@@ -110,7 +111,6 @@ function cellPress() {
     let c = parseInt(y)
     starSearch(r, c)
     
-
 }
 
 
@@ -118,11 +118,12 @@ function cellPress() {
 function renderShip() {
 
     // setting ship background color depending on true or false
-    shipSet = !shipSet;
+    shipSet = !shipSet
+   
 
     // ship marker is tied to html element "ship"
     // if ship button is darkgray its set on otherwise its off
-    document.getElementById("ship").style.backgroundColor = shipSet ? "darkgray" : "lightgrey";
+    document.getElementById("ship").style.backgroundColor = shipSet ? "darkgray" : "lightgrey"
   }
 
 
@@ -185,9 +186,6 @@ function starSearch(r, c) {
     // starting stars found from a value
     let starsFound = 0
 
-
-    
-
     // adding up cells into starsFound value
      starsFound += cellSearch(r-1, c-1) // top left
      starsFound += cellSearch(r-1, c) // top
@@ -200,7 +198,7 @@ function starSearch(r, c) {
 
      // adding numbers to cells to show the number of stars adjacent to them
     if(starsFound > 0) {
-        board[r][c].innerText = starsFound
+        board[r][c].innerText = starsFound 
         board[r][c].classList.add("c" + starsFound.toString())
     } else {
         
@@ -208,6 +206,9 @@ function starSearch(r, c) {
         board[r][c].classList.add('cellPress')
     }
 }
+
+
+
 
 // searching for cells on the board
 function cellSearch(r, c) {
@@ -226,7 +227,7 @@ function starRefresh(){
 // render game 
 function render() {
     renderBoard()
-    renderStars()   
+    renderStars()  
 }
     
         /*----- event listeners -----*/
