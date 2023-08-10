@@ -61,7 +61,7 @@ h1 {
 }
 
 .starReveal {
-    background-image: url(/img/explode.jpg); 
+    background-image: url("/img/explode.jpg"); 
     background-size: 60px;  
     backgrou
 }
