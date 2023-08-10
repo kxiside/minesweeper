@@ -7,17 +7,27 @@ body {
     background-image: url("/img/spacebg.jpeg");
 }
 
-h1, h2{
-    color:black;
+h1 {
+    color: black;
+    margin: 10px 0;
     background-color: grey;
-    text-align: center;
+}
+
+.timer {
+    font-size: 1.5rem;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color: whitesmoke;
     
-}
-
-
-.star {
 
 }
+
 
 #board {
     background-image: url("/img/mooon.jpg");

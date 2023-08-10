@@ -22,10 +22,15 @@ let starsCoordinate = []
 // solar system destroyed
 let system404 = false;
 
+// timer
+let timer
+
          
     /*----- cached elements  -----*/
 starsEl = document.getElementById("starsCount")
+timerEl = document.querySelector('.timer')
 starsEl.innerText = stars.toString()
+
     
         /*----- functions -----*/
 
@@ -33,9 +38,17 @@ init()
 
 // initialize board 
 function init () {
+    gameTimer()
     render()
 }
 
+function gameTimer() {
+    let sec = 0
+    timer = setInterval(() => {
+    timerEl.innerText = "timer: "+ sec
+    sec++
+    }, 1000)
+}
 // creating the board
 function renderBoard() {
 
