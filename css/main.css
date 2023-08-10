@@ -4,7 +4,7 @@
 
 body {
     text-align: center;
-    background-image: url("/img/spacebg.jpeg");
+    background-image: url("./img/spacebg.jpeg");
 }
 
 h1 {
@@ -30,7 +30,7 @@ h1 {
 
 
 #board {
-    background-image: url("/img/mooon.jpg");
+    background-image: url("./img/mooon.jpg");
     background-position: center;
     background-size: 200%;
     height: 532px;
@@ -61,7 +61,7 @@ h1 {
 }
 
 .starReveal {
-    background-image: url("/img/explode.jpg"); 
+    background-image: url("./img/explode.jpg"); 
     background-size: 60px;  
     backgrou
 }
